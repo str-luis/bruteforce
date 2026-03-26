@@ -1,26 +1,29 @@
+import time
+
 alphabet = "abcdefghijklmnopqrstuvwxyz"
-contraseña = "mesa"
-encontrada = False
-intentos = 0
 
-for a in alphabet:
-    for b in alphabet:
-        for c in alphabet:
-            for d in alphabet:
-                intento = a + b + c + d
-                intentos += 1
+def bruteforce(alp, password):
+    inicial = time.time()
+    char_times = []
+    intentos = 0
 
-                if intento == contraseña:
-                    print("Contraseña encontrada:", intento)
-                    print("Intentos:", intentos)
-                    encontrada = True
-                    break
-            if encontrada:
-                break
-        if encontrada:
-            break
-    if encontrada:
-        break
+    for a in alp:
+        for b in alp:
+            for c in alp:
+                for d in alp:
+                    intento = a + b + c + d
+                    intentos += 1
 
-if not encontrada:
-    print("No se encontró la contraseña usando el alfabeto")
+                    if intento == password:
+                        print("contraseña encontrada:", intento)
+                        final = time.time()
+                        char_times.append((intentos, final - inicial))
+                        print(char_times)
+                        return intentos, char_times
+
+    print("NO se encontro la contraseña usando el alfabeto")
+    return intentos, char_times
+
+bruteforce(alphabet, "mesa")
+bruteforce(alphabet, "casa")
+bruteforce(alphabet, "luna")
