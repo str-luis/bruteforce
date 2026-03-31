@@ -3,9 +3,13 @@ import time
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 def bruteforce(alp, password):
+
     inicial = time.time()
+    
     char_times = []
+    
     intentos = 0
+    
 
     for a in alp:
         for b in alp:
@@ -24,6 +28,9 @@ def bruteforce(alp, password):
     print("NO se encontro la contraseña usando el alfabeto")
     return intentos, char_times
 
+
 bruteforce(alphabet, "mesa")
+
 bruteforce(alphabet, "casa")
+
 bruteforce(alphabet, "luna")
